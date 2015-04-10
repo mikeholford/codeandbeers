@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Codeandbeers</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+
+	<%#= render 'layouts/header' %>
+	<!-- 
+	<%# if notice %>
+	  <p class="alert alert-success"><%#= notice %></p>
+	<%# end %>
+	<%# if alert %>
+	  <p class="alert alert-danger"><%#= alert %></p>
+	<%# end %>
+	 -->
+
+	<div id="wrapper">
+		<%= render 'layouts/sidebar' %>
+		<a href="#menu-toggle" class="fa fa-bars menu-bars" id="menu-toggle"></a>
+		<div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+					<%= yield %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	</body>
+
+	<!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</html>
+

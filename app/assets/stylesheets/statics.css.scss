@@ -1,0 +1,20 @@
+// HOME PAGE //
+
+.home-wrapper {
+	color: #36454f;
+    background-attachment:fixed;
+	background-image:url('home/1.jpg');
+	background-color: #fafaf9;
+	background-position: center center;
+	background-repeat: none;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	height: 100vh;
+
+	.description {
+		font-size: 25px;
+	}
+
+}

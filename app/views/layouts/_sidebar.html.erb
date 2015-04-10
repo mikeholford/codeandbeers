@@ -1,0 +1,50 @@
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <div class="site-info-wrapper">
+            <div class="site-info">
+                <div id="logo">
+                    <%= image_tag 'logo/logo.png', class: "main-logo" %>
+                </div>
+                <div id="content">
+                    <h1>Code And Beers</h1>
+                    <p>A community of individuals teaching themselves how to code...together</p>
+                    <hr class="grey">
+                </div>
+                <div id="social">
+                    <%= link_to "", root_url, class: "fa fa-twitter" %>
+                    <%= link_to "", root_url, class: "fa fa-envelope" %>
+                </div>
+            </div>
+        </div>
+        <div class="site-navbar">
+            <!-- <li class="sidebar-brand">
+                <a href="#">
+                    Start Bootstrap
+                </a>
+            </li> -->
+            <li>
+                <%= link_to "Home", root_url, :class => 'navbar-link'  %>
+            </li>
+            <li>
+                <%= link_to "About", "/about", :class => 'navbar-link'  %>
+            </li>
+             <li>
+                <%= link_to "Blog", "/about", :class => 'navbar-link'  %>
+            </li>
+            <li>
+                <%= link_to "Contact", root_url, :class => 'navbar-link'  %>
+            </li>
+            <% if user_signed_in? %>
+              <!-- <li>Logged in as <strong><%#= current_user.email %></strong></li> -->
+              <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+            <% else %>
+                <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+            <% end %>
+        </div>
+    </ul>
+    
+</div>
+<!-- /#sidebar-wrapper -->
