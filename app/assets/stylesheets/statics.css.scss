@@ -14,7 +14,28 @@
 	height: 100vh;
 
 	.description {
-		font-size: 25px;
+		font-size: 20px;
+	}
+
+	.join-wrapper {
+		.home-signup {
+			margin-top: 20px;
+			.field {
+				label {
+					font-size: 16px;
+				}
+				input {
+					width: 100%;
+					height: 40px;
+				}
+			}
+			.actions {
+				input {
+					font-size: 20px;
+					margin-top: 20px;
+				}
+			}
+		}
 	}
 
 }
