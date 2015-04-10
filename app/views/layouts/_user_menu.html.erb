@@ -2,10 +2,12 @@
 	<div class="dropdown">
 		<a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 			<div class="user-menu-drop">
+
 				<div id="content">
-					<i class="fa fa-user fa-2x user-icon"></i>
-		 			<!-- <span class="caret"></span> -->
+					<%= image_tag current_user.avatar unless current_user.avatar.blank? %>
+					<%= image_tag 'icons/default_user.png' unless current_user.avatar %>
 	 			</div>
+
 	 		</div>
 		</a>
 		<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">

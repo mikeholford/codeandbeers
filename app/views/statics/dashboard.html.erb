@@ -1,20 +1,38 @@
 
+
 <div class="dashboard-wrapper">
 
 	<section>
+		<%#= image_tag current_user.avatar %>
 		<h1>Hey <%= current_user.username %></h1>
 		<hr class="white">
 	</section>
 	<section>
-		<div class="row">	
-			<div class="col-md-6">
-				<p class="description">We run weekly meetups for people who enjoy coding and want to improve! There is no limite to how good you are, we always have a full time developers on site to lend a hand and we also drink BEER!</br><a href="/about">find out more...</a></p>
-                <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
-
-
-			</div>
+		<div class="link-wrapper">	
+			<h3>All Resources</h3>
+			<% @links.order('created_at DESC').each do |l| %>
+				<div class="well">
+					<h4><%= link_to l.name, l.link %></h4>
+					<p><%= l.description %></p>
+					<p id="submitted">Submitted by <em><%= link_to User.find(l.user_id).username, "", :data => {toggle: "modal", target: "#userModal"}  %></em> <%= time_ago_in_words(l.created_at) %> ago.</p>
+				</div>
+			<% end %>
+		</div>
+		<hr>
+		<div class="link-wrapper">	
+			<h3>Your Resources</h3>
+			<% current_user.helpful_links.order('created_at DESC').each do |l| %>
+				<div class="well">
+					<h4><%= link_to l.name, l.link %></h4>
+					<p><%= l.description %></p>
+					<p id="submitted">Submitted by <em><%= link_to User.find(l.user_id).username, "", :data => {toggle: "modal", target: "#userModal"}  %></em> <%= time_ago_in_words(l.created_at) %> ago.</p>
+				</div>
+			<% end %>
 		</div>
 	</section>
 
 </div>
+
+<%= render 'shared/link_modal' %>
+<%= render 'shared/user_modal' %>
 

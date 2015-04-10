@@ -1,0 +1,19 @@
+<div class="helpful-links-form">
+	<%= form_for [@user, @link] do |f| %>
+		<div class="field">
+			<%= f.label :name %><br>
+			<%= f.text_field :name, placeholder: "Name" %>
+		</div>
+		<div class="field">
+			<%= f.label :description %><br>
+			<%= f.text_field :description, placeholder: "Description" %>
+		</div>
+		<div class="field">
+			<%= f.label :link %><br>
+			<%= f.text_field :link, placeholder: "Link URL" %>
+		</div>
+		<div id="link_submit">
+			<%= f.submit 'Add Resource', class: 'btn btn-CB' %>
+		</div>
+	<% end %>
+</div>

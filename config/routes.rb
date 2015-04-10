@@ -8,13 +8,15 @@ Codeandbeers::Application.routes.draw do
   devise_scope :user do
     get 'users/:id' => 'users#show', as: "user"
   end
+  resources :users do 
+    resources :helpful_links  
+  end
   
   root 'statics#home'
 
 
 
   resources :statics
-  resources :helpfullinks
 
 
   #Match Routes

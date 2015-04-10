@@ -1,4 +1,3 @@
-
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
@@ -26,6 +25,20 @@
                 </div>
             </div>
         </div>
+        <% if signed_in? %>
+            <div class="site-actions">
+                <div class="col-xs-4 action" data-toggle="tooltip" data-placement="top" title="Slack Community">
+                    <%= link_to "", "http://codeandbeers.slack.com", class: "btn btn-actn fa fa-slack action-icon", target: "blank" %>
+                </div>
+                <div class="col-xs-4 action" data-toggle="tooltip" data-placement="top" title="Events">
+                    <%= link_to "", "", class: "btn btn-actn fa fa-calendar action-icon" %>
+                </div>
+                <div class="col-xs-4 action end" data-toggle="tooltip" data-placement="top" title="Add Resource">
+                    <%= link_to "", "", class: "btn btn-actn fa fa-plus action-icon", :data => {toggle: "modal", target: "#linkModal"} %>
+                </div>
+            </div>
+        <% end %>
+
         <div class="site-navbar">
             <!-- <li class="sidebar-brand">
                 <a href="#">

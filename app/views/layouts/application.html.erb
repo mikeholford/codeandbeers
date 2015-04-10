@@ -13,25 +13,24 @@
 
 		<%#= render 'layouts/header' %>
 
-
-	<div class="wrap">
-		<div id="wrapper">
-			<%= render 'layouts/sidebar' %>
-			<a href="#menu-toggle" class="fa fa-bars menu-bars" id="menu-toggle"></a>
-			<div id="page-content-wrapper">
-	            <div class="container-fluid">
-	                <div class="row">
-	                	<% if signed_in? %>
-	                		<%= render 'layouts/user_menu' %>
-	                	<% end %>
-						<%= yield %>
+		<div class="wrap">
+			<div id="wrapper">
+				<%= render 'layouts/sidebar' %>
+				<a href="#menu-toggle" class="fa fa-bars menu-bars" id="menu-toggle"></a>
+				<div id="page-content-wrapper">
+		            <div class="container-fluid">
+		                <div class="row">
+		                	<% if signed_in? %>
+		                		<%= render 'layouts/user_menu' %>
+		                	<% end %>
+							<%= yield %>
+						</div>
 					</div>
 				</div>
+				<%= render 'layouts/footer' %>
 			</div>
-			<%= render 'layouts/footer' %>
 		</div>
-	</div>
-
+		<%#= render 'shared/link_modal' %>
 
 	</body>
 
