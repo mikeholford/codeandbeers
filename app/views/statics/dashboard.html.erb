@@ -1,0 +1,20 @@
+
+<div class="dashboard-wrapper">
+
+	<section>
+		<h1>Hey <%= current_user.username %></h1>
+		<hr class="white">
+	</section>
+	<section>
+		<div class="row">	
+			<div class="col-md-6">
+				<p class="description">We run weekly meetups for people who enjoy coding and want to improve! There is no limite to how good you are, we always have a full time developers on site to lend a hand and we also drink BEER!</br><a href="/about">find out more...</a></p>
+                <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+
+
+			</div>
+		</div>
+	</section>
+
+</div>
+

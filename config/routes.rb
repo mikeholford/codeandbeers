@@ -3,17 +3,22 @@ Codeandbeers::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  devise_for :users, :controllers => {:registrations => "users"}
+  devise_for :users, :controllers => {:registrations => "users", :omniauth_callbacks => "callbacks" }
 
   devise_scope :user do
     get 'users/:id' => 'users#show', as: "user"
   end
   
   root 'statics#home'
+
+
+
   resources :statics
+  resources :helpfullinks
 
 
   #Match Routes
   match '/about' => 'statics#about', via: 'get', as: 'about'
+  match '/dashboard' => 'statics#dashboard', via: 'get', as: 'dashboard'
 
 end

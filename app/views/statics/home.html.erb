@@ -2,24 +2,35 @@
 <div class="home-wrapper">
 
 	<section>
-		<h1>Welcome to Code And Beers!</h1>
-		<hr class="white">
+		
 	</section>
 	<section>
 		<div class="row">	
-			<div class="col-md-6">
-				<p class="description">We run weekly meetups for people who enjoy coding and want to improve! There is no limite to how good you are, we always have a full time developers on site to lend a hand and we also drink BEER!</br><a href="/about">find out more...</a></p>
-                <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+			<div class="col-md-7">
+				<h1 class="headline" >Welcome to Code And Beers!</h1>
+				<hr class="grey">
+				<p class="description">We run weekly meetups for people who enjoy coding and want to improve! There is no limit to how good you need to be, we always have full time developers on site to lend a hand and we also drink <strong>BEER</strong> (No worries if you don't drink beer, we have plenty more things)! <a href="/about">Find out more...</a></p>
+				<hr>
+				<h3>Never miss an event! Join our newsletter</h3>
+				<%= render 'shared/mailchimp_form' %>
+
 
 
 			</div>
-			<div class="col-md-6">
-				<div class="join-wrapper">
-					<h2>Join Us!</h2>
-					<div class="home-signup">
-						<%= render 'devise/registrations/new_form' %>
+			<div class="col-md-5">
+
+	            	<div class="join-wrapper">
+
+							<h2 id="content_head">Join The Community</h2>
+							<h4>Already a member? <%= link_to "Login Here", new_user_session_path %></h4>
+							<%= link_to " Sign Up Via Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-twitter fa fa-twitter hover-rise", style: "margin-top: 10px;" %>
+							<h3>Or sign up below:</h3>
+							<div class="home-signup">
+								<%= render 'devise/registrations/new_form' %>
+							</div>
+
 					</div>
-	            </div>
+
 			</div>
 		</div>
 	</section>

@@ -1,5 +1,7 @@
-<h2>Log in</h2>
-
-<%= render 'new_form' %>
-
-<%= render "devise/shared/links" %>
+<div class="col-md-6 col-md-offset-3">
+	<h2>Log in to Code And Beers</h2>
+	<%= link_to " Login Via Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-twitter fa fa-twitter hover-rise", style: "margin-top: 10px;" %>
+	<h3>Or login below:</h3>
+	<%= render 'new_form' %>
+	<%= render "devise/shared/links" %>
+</div>

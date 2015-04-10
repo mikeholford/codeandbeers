@@ -1,0 +1,29 @@
+<div class="user-menu-wrapper">
+	<div class="dropdown">
+		<a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<div class="user-menu-drop">
+				<div id="content">
+					<i class="fa fa-user fa-2x user-icon"></i>
+		 			<!-- <span class="caret"></span> -->
+	 			</div>
+	 		</div>
+		</a>
+		<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+		<% if user_signed_in? %>
+          <!-- <li>Logged in as <strong><%#= current_user.email %></strong></li> -->
+          <li><%= link_to ' Edit profile', edit_user_registration_path, :class => 'fa fa-cog navbar-link' %></li>
+          <li><%= link_to " Logout", destroy_user_session_path, method: :delete, :class => 'fa fa-sign-out navbar-link'  %></li>
+        <% else %>
+            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+        <% end %>
+	   
+	  </ul>
+	</div>
+
+	<div class="fab blue">
+      <core-icon icon="mail"></core-icon>
+      <paper-ripple class="circle recenteringTouch" fit></paper-ripple>
+    </div>
+
+</div>
+

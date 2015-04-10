@@ -12,12 +12,20 @@
 	background-size: cover;
 	-o-background-size: cover;
 	height: 100vh;
-
+	.headline {
+		font-size: 30px;
+	}
 	.description {
 		font-size: 20px;
 	}
 
 	.join-wrapper {
+		border-style: solid;
+  		padding: 10px;
+  		border-color: #36454F;
+  		#content_head {
+  			margin-top: 0px;
+  		}
 		.home-signup {
 			margin-top: 20px;
 			.field {

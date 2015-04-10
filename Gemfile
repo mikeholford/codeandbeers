@@ -61,4 +61,6 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'active_skin'
 gem 'normalize-rails'
 gem 'meta-tags'
-
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-twitter'
