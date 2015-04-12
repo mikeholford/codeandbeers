@@ -1,8 +1,8 @@
 development:
-  contact_email: "mike.l.holford@gmail.com"
+  contact_email: "admin@codeandbeers.com"
 
 test:
-  contact_email: "mike.l.holford@gmail.com"
+  contact_email: "admin@codeandbeers.com"
 
 production:
-  contact_email: "mike.l.holford@gmail.com"
+  contact_email: "admin@codeandbeers.com"
