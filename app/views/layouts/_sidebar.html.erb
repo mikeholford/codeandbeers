@@ -21,7 +21,7 @@
                 </div>
                 <div id="social">
                     <%= link_to "", "https://twitter.com/codeandbeers_", class: "fa fa-twitter" %>
-                    <%= link_to "", root_url, class: "fa fa-envelope" %>
+                    <%= link_to "", "mailto:#{GLOBALS_CONFIG['contact_email']}", class: "fa fa-envelope" %>
                 </div>
             </div>
         </div>
@@ -52,10 +52,10 @@
                 <%= link_to "About", "/about", :class => 'navbar-link'  %>
             </li>
              <li>
-                <%= link_to "Blog", "http://blog.codeandbeers.com", :class => 'navbar-link'  %>
+                <%= link_to "Blog", "http://blog.codeandbeers.com", :class => 'navbar-link', target: "_blank"  %>
             </li>
             <li>
-                <%= link_to "Contact", root_url, :class => 'navbar-link'  %>
+                <%= link_to "Contact", "/contact", :class => 'navbar-link'  %>
             </li>
         </div>
     </ul>

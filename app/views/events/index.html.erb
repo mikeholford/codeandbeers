@@ -14,11 +14,14 @@
 					<div class="well">
 						<div class="row">
 							<div class="col-md-2 center">
-								<%= image_tag e.image, id: "image", style: "margin-left: auto; margin-right: auto;" %>
+								<%= link_to image_tag(e.image, id: "image", style: "margin-left: auto; margin-right: auto;"), e.ticket_link %>
 							</div>
-							<div class="col-md-10" id="header">
-								<h4><strong><%= e.name %></strong></h4>
+							<div class="col-md-8" id="header">
+								<h4><strong><%= link_to e.name, e.ticket_link %></strong></h4>
 								<span id="date"><h5><em><%= e.date.strftime("%A, #{e.date.day.ordinalize} %B") %> <%= e.time_start.strftime("%H:%M") %> - <%= e.time_end.strftime("%H:%M") %></em></h5></span>
+							</div>
+							<div class="col-md-2">
+							<%= link_to "Get Tickets", e.ticket_link, class: "btn btn-success"%>
 							</div>
 						</div>
 						<div class="row">
@@ -40,11 +43,14 @@
 				<div class="well">
 						<div class="row">
 							<div class="col-md-2 center">
-								<%= image_tag e.image, id: "image", style: "margin-left: auto; margin-right: auto;" %>
+								<%= link_to image_tag(e.image, id: "image", style: "margin-left: auto; margin-right: auto;"), e.ticket_link %>
 							</div>
-							<div class="col-md-10" id="header">
-								<h4><strong><%= e.name %></strong></h4>
+							<div class="col-md-8" id="header">
+								<h4><strong><%= link_to e.name, e.ticket_link %></strong></h4>
 								<span id="date"><h5><em><%= e.date.strftime("%A, #{e.date.day.ordinalize} %B") %> <%= e.time_start.strftime("%H:%M") %> - <%= e.time_end.strftime("%H:%M") %></em></h5></span>
+							</div>
+							<div class="col-md-2">
+							<%= link_to "Get Tickets", e.ticket_link, class: "btn btn-success"%>
 							</div>
 						</div>
 						<div class="row">

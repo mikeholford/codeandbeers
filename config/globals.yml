@@ -1,0 +1,8 @@
+development:
+  contact_email: "mike.l.holford@gmail.com"
+
+test:
+  contact_email: "mike.l.holford@gmail.com"
+
+production:
+  contact_email: "mike.l.holford@gmail.com"

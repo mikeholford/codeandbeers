@@ -20,6 +20,7 @@ Codeandbeers::Application.routes.draw do
 
   #Match Routes
   match '/about' => 'statics#about', via: 'get', as: 'about'
+  match '/contact' => 'statics#contact', via: 'get', as: 'contact'
   match '/dashboard' => 'statics#dashboard', via: 'get', as: 'dashboard'
 
 end

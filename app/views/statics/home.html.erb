@@ -5,11 +5,76 @@
 		
 	</section>
 	<section>
-		<div class="row">	
+	
 			<div class="col-md-7">
 				<h1 class="headline" >Welcome to Code And Beers!</h1>
 				<hr class="grey">
 				<p class="description">We run weekly meetups for people who enjoy coding and want to improve! There is no limit to how good you need to be, we always have full time developers on site to lend a hand and we also drink <strong>BEER</strong> (No worries if you don't drink beer, we have plenty more things)! <a href="/about">Find out more...</a></p>
+				<hr>
+
+				<div class="event-wrapper">
+					<div class="event-link-wrapper">	
+
+						<h3>Next Events</h3>
+						<% @events.future.limit(3).each do |e| %>
+							<div class="well">
+								<div class="row">
+									<div class="col-md-2">
+										<%= image_tag e.image, id: "image", style: "margin-left: auto; margin-right: auto;" %>
+									</div>
+									<div class="col-md-10">
+										<strong><%= e.name %></strong>
+										<span id="date"><h5><em><%= e.date.strftime("%A, #{e.date.day.ordinalize} %B") %> <%= e.time_start.strftime("%H:%M") %> - <%= e.time_end.strftime("%H:%M") %></em></h5></span>
+										<%= link_to "Get Tickets", e.ticket_link %> | <%= link_to "Find Out More", "", :data => {toggle: "modal", target: "#eventModal#{e.id}"} %>
+									</div>
+								</div>
+							</div>
+
+							<%# unless Event.where(id: e.id).blank? %>
+								<%#= render 'shared/event_modal', locals: { event: Event.find(e.id) } %>
+							<%# end %>
+
+							<!-- Modal -->
+							<div class="event-modal-wrapper">
+				              <div class="modal fade" id="eventModal<%=e.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				                <div class="modal-dialog">
+				                  <div class="modal-content">
+				                    <div class="modal-header">
+				                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				                      <div class="row">
+				                      <div class="col-md-3">
+            						  	<h4 class="modal-title header-image" id="myModalLabel"><%= image_tag e.image %></h4>
+            						  </div>
+				                      <div class="col-md-9">
+				                      	<h4 class="modal-title" id="myModalLabel"><strong><%=e.name%></strong></h4>
+				                      	<span id="date"><h5><em><%= e.date.strftime("%A, #{e.date.day.ordinalize} %B") %> <%= e.time_start.strftime("%H:%M") %> - <%= e.time_end.strftime("%H:%M") %></em></h5></span>
+				                      </div>
+				                      </div>
+				                    </div>
+				                    <div class="modal-body">
+				                    	<div class="row">
+				                      	<div class="col-md-12">
+				                    		<%= e.description.html_safe %>
+				                    	</div>
+				                    	</div>
+				                    </div>
+				                    <div class="modal-footer">
+				                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				                      <%= link_to "Get Tickets", e.ticket_link, class: "btn btn-success" %>
+				                    </div>
+				                  </div>
+				                </div>
+				              </div>
+				             </div>
+
+
+						<% end %>
+
+						<%= link_to "View all events...", "/events" %>
+
+					</div>
+				</div>
+
 				<hr>
 				<h3>Never miss an event! Join our newsletter</h3>
 				<%= render 'shared/mailchimp_form' %>
@@ -18,22 +83,18 @@
 
 			</div>
 			<div class="col-md-5">
+            	<div class="join-wrapper">
 
-	            	<div class="join-wrapper">
+						<h2 id="content_head">Join The Community</h2>
+						<h4>Already a member? <%= link_to "Login Here", new_user_session_path %></h4>
+						<%= link_to " Sign Up Via Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-twitter fa fa-twitter hover-rise", style: "margin-top: 10px; width: 100%; line-height: 35px;" %>
+						<h3>Or sign up below:</h3>
+						<div class="home-signup">
+							<%= render 'devise/registrations/new_form' %>
+						</div>
 
-							<h2 id="content_head">Join The Community</h2>
-							<h4>Already a member? <%= link_to "Login Here", new_user_session_path %></h4>
-							<%= link_to " Sign Up Via Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-twitter fa fa-twitter hover-rise", style: "margin-top: 10px; width: 100%; line-height: 35px;" %>
-							<h3>Or sign up below:</h3>
-							<div class="home-signup">
-								<%= render 'devise/registrations/new_form' %>
-							</div>
-
-					</div>
-
+				</div>
 			</div>
-		</div>
+
 	</section>
-
 </div>
-

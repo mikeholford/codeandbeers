@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
      :omniauthable, :omniauth_providers => [:twitter]
 
-    has_many :helpful_links, dependent: :destroy
+    has_many :helpful_links
     after_create :send_notification
 
     validates_presence_of :username
