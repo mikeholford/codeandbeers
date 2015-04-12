@@ -9,7 +9,7 @@
 	</section>
 	<section>
 		<div class="link-wrapper">	
-			<h3><i class="fa fa-external-link"></i> Latest Resources</h3>
+			<h3><i class="fa fa-external-link"></i> Latest Resources <%= link_to "+ New", "", class: "new_resource", :data => {toggle: "modal", target: "#linkModal"} %></h3>
 
 			<% @links.order('created_at DESC').each do |l| %>
 
