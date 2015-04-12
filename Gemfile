@@ -65,3 +65,4 @@ gem 'therubyracer'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'mandrill-api', require: "mandrill"
+gem 'unicorn'
