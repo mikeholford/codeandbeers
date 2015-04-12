@@ -22,5 +22,6 @@ Codeandbeers::Application.routes.draw do
   match '/about' => 'statics#about', via: 'get', as: 'about'
   match '/contact' => 'statics#contact', via: 'get', as: 'contact'
   match '/dashboard' => 'statics#dashboard', via: 'get', as: 'dashboard'
+  match '/sitemap' => 'statics#sitemap', via: 'get', as: 'sitemap'
 
 end

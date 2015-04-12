@@ -22,4 +22,7 @@ class StaticsController < ApplicationController
 	def contact
 	end
 
+	def sitemap
+	end
+
 end
