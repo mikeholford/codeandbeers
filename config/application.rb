@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Codeandbeers
   class Application < Rails::Application
 
+    #Added 2 lines below to fix weird [] nill method
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
     # Settings in config/environments/* take precedence over those specified here.

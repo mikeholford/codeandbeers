@@ -23,7 +23,7 @@
 
 							<h2 id="content_head">Join The Community</h2>
 							<h4>Already a member? <%= link_to "Login Here", new_user_session_path %></h4>
-							<%= link_to " Sign Up Via Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-twitter fa fa-twitter hover-rise", style: "margin-top: 10px;" %>
+							<%= link_to " Sign Up Via Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-twitter fa fa-twitter hover-rise", style: "margin-top: 10px; width: 100%; line-height: 35px;" %>
 							<h3>Or sign up below:</h3>
 							<div class="home-signup">
 								<%= render 'devise/registrations/new_form' %>

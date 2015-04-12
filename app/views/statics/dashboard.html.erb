@@ -9,12 +9,12 @@
 	</section>
 	<section>
 		<div class="link-wrapper">	
-			<h3>All Resources</h3>
+			<h3>Latest Resources</h3>
 			<% @links.order('created_at DESC').each do |l| %>
 				<div class="well">
 					<h4><%= link_to l.name, l.link %></h4>
 					<p><%= l.description %></p>
-					<p id="submitted">Submitted by <em><%= link_to User.find(l.user_id).username, "", :data => {toggle: "modal", target: "#userModal"}  %></em> <%= time_ago_in_words(l.created_at) %> ago.</p>
+					<p id="submitted">Submitted by <em><%#= link_to User.where(id: l.user_id).first.username, "", :data => {toggle: "modal", target: "#userModal"} %></em> <%= time_ago_in_words(l.created_at) %> ago.</p>
 				</div>
 			<% end %>
 		</div>

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
      :omniauthable, :omniauth_providers => [:twitter]
 
     has_many :helpful_links
+    after_create :send_notification
 
     validates_presence_of :username
     validates_uniqueness_of :username
@@ -42,6 +43,10 @@ class User < ActiveRecord::Base
 	  else
 	    super
 	  end
+	end
+
+	def send_notification
+		AdminMailer.new_user(self).deliver_now
 	end
 
 end
