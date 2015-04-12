@@ -21,3 +21,6 @@ module Codeandbeers
     # config.i18n.default_locale = :de
   end
 end
+
+config.middleware.use ActionDispatch::Cookies
+config.middleware.use ActionDispatch::Session::CookieStore
