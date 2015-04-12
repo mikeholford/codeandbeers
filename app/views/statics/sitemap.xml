@@ -7,37 +7,37 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
-  <loc>http://www.codeandbeers.com/</loc>
+  <loc>https://www.codeandbeers.com/</loc>
   <changefreq>daily</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.codeandbeers.com/about</loc>
+  <loc>https://www.codeandbeers.com/about</loc>
   <changefreq>daily</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.codeandbeers.com/events</loc>
+  <loc>https://www.codeandbeers.com/events</loc>
   <changefreq>daily</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.codeandbeers.com/contact</loc>
+  <loc>https://www.codeandbeers.com/contact</loc>
   <changefreq>daily</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.codeandbeers.com/users/sign_in</loc>
+  <loc>https://www.codeandbeers.com/users/sign_in</loc>
   <changefreq>daily</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.codeandbeers.com/users/sign_up</loc>
+  <loc>https://www.codeandbeers.com/users/sign_up</loc>
   <changefreq>daily</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.codeandbeers.com/users/password/new</loc>
+  <loc>https://www.codeandbeers.com/users/password/new</loc>
   <changefreq>daily</changefreq>
   <priority>0.64</priority>
 </url>
