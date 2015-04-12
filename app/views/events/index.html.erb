@@ -1,0 +1,62 @@
+<div class="event-wrapper">
+
+	<section>
+		<%#= image_tag current_user.avatar %>
+		<h1><i class="fa fa-calendar"></i> Code And Beers Events</h1>
+		<hr class="white">
+	</section>
+	<section>
+		<div class="event-link-wrapper">	
+			<h3>Upcoming Events</h3>	
+			<p>&nbsp;</p>
+			<% @events.future.order('date ASC').each do |e| %>
+
+					<div class="well">
+						<div class="row">
+							<div class="col-md-2 center">
+								<%= image_tag e.image, id: "image", style: "margin-left: auto; margin-right: auto;" %>
+							</div>
+							<div class="col-md-10" id="header">
+								<h4><strong><%= e.name %></strong></h4>
+								<span id="date"><h5><em><%= e.date.strftime("%A, #{e.date.day.ordinalize} %B") %> <%= e.time_start.strftime("%H:%M") %> - <%= e.time_end.strftime("%H:%M") %></em></h5></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12>">
+								<hr>
+								<p id="description"><%= e.description.html_safe %></p>
+							</div>
+						</div>
+					</div>
+
+			<% end %>
+		</div>
+	</section>
+	<section>
+		<div class="event-link-wrapper">	
+			<h3>Past Events</h3>
+			<p>&nbsp;</p>
+			<% @events.past.order('date DESC').each do |e| %>
+				<div class="well">
+						<div class="row">
+							<div class="col-md-2 center">
+								<%= image_tag e.image, id: "image", style: "margin-left: auto; margin-right: auto;" %>
+							</div>
+							<div class="col-md-10" id="header">
+								<h4><strong><%= e.name %></strong></h4>
+								<span id="date"><h5><em><%= e.date.strftime("%A, #{e.date.day.ordinalize} %B") %> <%= e.time_start.strftime("%H:%M") %> - <%= e.time_end.strftime("%H:%M") %></em></h5></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12>">
+								<hr>
+								<p id="description"><%= e.description.html_safe %></p>
+							</div>
+						</div>
+					</div>
+			<% end %>
+		</div>
+	</section>
+
+</div>
+

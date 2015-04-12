@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
      :omniauthable, :omniauth_providers => [:twitter]
 
-    has_many :helpful_links
+    has_many :helpful_links, dependent: :destroy
     after_create :send_notification
 
     validates_presence_of :username
@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
 
 	def send_notification
 		AdminMailer.new_user(self).deliver_now
+		UserMailer.new_user_welcome(self).deliver_now
 	end
 
 end

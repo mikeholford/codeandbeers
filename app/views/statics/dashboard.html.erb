@@ -14,7 +14,7 @@
 				<div class="well">
 					<h4><%= link_to l.name, l.link %></h4>
 					<p><%= l.description %></p>
-					<p id="submitted">Submitted by <em><%#= link_to User.where(id: l.user_id).first.username, "", :data => {toggle: "modal", target: "#userModal"} %></em> <%= time_ago_in_words(l.created_at) %> ago.</p>
+					<p id="submitted">Submitted by <em><%= link_to User.where(id: l.user_id).first.username, "", :data => {toggle: "modal", target: "#userModal"} unless User.where(id: l.user_id).first.blank? %></em> <%= time_ago_in_words(l.created_at) %> ago.</p>
 				</div>
 			<% end %>
 		</div>

@@ -13,10 +13,9 @@ Codeandbeers::Application.routes.draw do
   end
   
   root 'statics#home'
-
-
-
+  
   resources :statics
+  resources :events
 
 
   #Match Routes
