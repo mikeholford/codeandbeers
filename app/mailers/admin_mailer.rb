@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-  	default to: "mike.l.holford@gmail.com"
+  	default to: "admin@codeandbeers.com"
 
   	def mandrill_client
   		@mandrill_client ||= Mandrill::API.new MANDRILL_API_KEY
@@ -14,10 +14,10 @@ class AdminMailer < ApplicationMailer
 	  	template_name = "admin-new-resource"
 	  	template_content = []
 	  	message = {
-	  		to: [{email: "mike.l.holford@gmail.com"}],
+	  		to: [{email: "admin@codeandbeers.com"}],
 	  		subject: "New Resource: #{resource.name}",
 	  		merge_vars: [
-	  			{rcpt: "mike.l.holford@gmail.com", 
+	  			{rcpt: "admin@codeandbeers.com", 
 	  			vars: [
 	  				{name: "RESOURCE_USER", content: User.find(resource.user_id).username},
 	  				{name: "RESOURCE_NAME", content: resource.name},
