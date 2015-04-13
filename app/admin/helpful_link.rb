@@ -1,6 +1,6 @@
 ActiveAdmin.register HelpfulLink do
 
-  permit_params :name, :description, :link, :user_id
+  permit_params :name, :description, :link, :user_id, :paid
   
   index do
     selectable_column
@@ -9,11 +9,13 @@ ActiveAdmin.register HelpfulLink do
     column :name
     column :description
     column :link
+    column :paid
     actions
   end
 
   filter :name
   filter :link
+  filter :paid
   filter :user_id
 
   form do |f|
@@ -22,6 +24,7 @@ ActiveAdmin.register HelpfulLink do
       f.input :name
       f.input :description
       f.input :link
+      f.input :paid
     end
     f.actions
   end

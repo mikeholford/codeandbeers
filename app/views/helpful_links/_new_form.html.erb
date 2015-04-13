@@ -6,11 +6,15 @@
 		</div>
 		<div class="field">
 			<%= f.label :description %><br>
-			<%= f.text_field :description, placeholder: "Description" %>
+			<%= f.text_field :description, placeholder: "Short Description" %>
 		</div>
 		<div class="field">
 			<%= f.label :link %><br>
 			<%= f.text_field :link, placeholder: "Link URL" %>
+		</div>
+		<div class="field">
+			<%= f.label :paid, "Tick if you need to pay for this service" %>
+			<%= f.check_box :paid %>
 		</div>
 		<div id="link_submit">
 			<%= f.submit 'Add Resource', class: 'btn btn-CB' %>
