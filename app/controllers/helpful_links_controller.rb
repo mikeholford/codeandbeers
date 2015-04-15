@@ -9,6 +9,11 @@ class HelpfulLinksController < ApplicationController
 		@link = HelpfulLink.find(params[:id]) 
 	end
 
+	def edit
+		@user = User.find(params[:user_id]) 
+		@link = HelpfulLink.find(params[:id]) 
+	end
+
 	def create
 		@link = HelpfulLink.new(link_params)
 		@link.user_id = current_user.id

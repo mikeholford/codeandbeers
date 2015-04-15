@@ -24,20 +24,27 @@
 	.well {
 		#submitted {
 			font-size: 12px;
+			display: inline;
 		}
 		#username {
 			color: rgb(18, 112, 174);
 		}
 	}
 	.favourite-link-form {
+
+			i {
+				float: right;
+			}
+
 		.favourite {
 				background-color: #fafaf9;
 				border-style: none;
+				float: right;
 		}
 		.favourite:hover {
 			color: #fbcb3a;
 		}
-		.favourited {
+		.favourited {			
 			color: #fbcb3a;
 		}
 	}

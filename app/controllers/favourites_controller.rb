@@ -1,7 +1,13 @@
 class FavouritesController < ApplicationController
 
 	def index 
-		@fav = Favourite.where(user_id: current_user)
+			
+		@favourites = current_user.favourites
+		@links = HelpfulLink.all
+
+		@fav = Favourite.new
+		@link = HelpfulLink.new
+		@user = current_user
 	end
 
 	def new

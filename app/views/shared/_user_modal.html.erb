@@ -1,19 +1,21 @@
+<% @user = locals[:user] %>
 <div class="user-modal-wrapper">
-  <!-- Modal -->
+  <!-- User Show Modal -->
   <div class="modal fade" id="userModel<%=@user.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h2 class="modal-title header-image" id="myModalLabel"><%= image_tag @user.avatar %></h2>
             <h2 class="modal-title header-name" id="myModalLabel"><%= @user.username %></h2>
         </div>
         <div class="modal-body">
-          <p>Member since: <strong><%= @user.created_at.strftime("%A, #{@user.created_at.day.ordinalize} %B") %></strong></p>
+            <p>Member since: <strong><%= @user.created_at.strftime("#{@user.created_at.day.ordinalize} %B %Y") %></strong></p>
+            <p>Links Submitted: <strong><%= @user.helpful_links.count %></strong></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>  
       </div>
     </div>
   </div>
