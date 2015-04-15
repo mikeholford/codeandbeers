@@ -1,21 +1,24 @@
-<div class="events-modal-wrapper">
-  <!-- Modal -->
-  <div class="modal fade" id="eventModel<%=@event.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h2 class="modal-title header-image" id="myModalLabel"><%= image_tag @event.image %></h2>
-            <h2 class="modal-title header-name" id="myModalLabel"><%= @event.name %></h2>
-        </div>
-        <div class="modal-body">
-          <p>Member since: <strong><%= @event.created_at.strftime("%A, #{@event.created_at.day.ordinalize} %B") %></strong></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
+<% @event = locals[:event] %>
+
+<div class="well">
+  <div class="row">
+    <div class="col-md-2 center">
+      <%= link_to image_tag(@event.image, id: "image", style: "margin-left: auto; margin-right: auto;"), @event.ticket_link %>
+    </div>
+    <div class="col-md-8" id="header">
+      <h4><strong><%= link_to @event.name, @event.ticket_link unless @event.date < Date.today %><%= @event.name unless @event.date >= Date.today %></strong></h4>
+      <span id="date"><h5><em><%= @event.date.strftime("%A, #{@event.date.day.ordinalize} %B") %> <%= @event.time_start.strftime("%H:%M") %> - <%= @event.time_end.strftime("%H:%M") %></em></h5></span>
+    </div>
+    <div class="col-md-2">
+    <%= link_to "Get Tickets", @event.ticket_link, class: "btn btn-success" unless @event.date < Date.today %>
+    <%= link_to "Sold OUT", @event.ticket_link, class: "btn btn-success disabled" unless @event.date >= Date.today %>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12>">
+      <hr>
+      <p id="description"><%= @event.description.html_safe %></p>
     </div>
   </div>
 </div>
-

@@ -10,6 +10,7 @@ Codeandbeers::Application.routes.draw do
   end
   resources :users do 
     resources :helpful_links  
+    resources :favourites  
   end
   
   root 'statics#home'

@@ -5,51 +5,16 @@
 	<section>
 		<%#= image_tag current_user.avatar %>
 		<h1>Hey <%= current_user.username %></h1>
+		<% if current_user.favourites.count > 0 %>
+			<i class="fa fa-star"></i> <%= link_to current_user.favourites.count, user_favourites_path(current_user) %>
+		<% end %>
 		<hr class="white">
 	</section>
 	<section>
 		<div class="link-wrapper">	
 			<h3><i class="fa fa-external-link"></i> Latest Resources <%= link_to "+ New", "", class: "new_resource", :data => {toggle: "modal", target: "#linkModal"} %></h3>
-
-			<% @links.order('created_at DESC').each do |l| %>
-
-				<div class="well">
-					<h4><%= link_to l.name, l.link %></h4>
-					<p><%= l.description %></p>
-					<p id="submitted">Submitted <% if User.where(id: l.user_id).first %>by<%end%> <em><%= link_to User.where(id: l.user_id).first.username, "", :data => {toggle: "modal", target: "#userModel#{l.user_id}"}, id: "username" unless User.where(id: l.user_id).first.blank? %></em> <%= time_ago_in_words(l.created_at) %> ago.</p>
-				</div>
-
-				<% unless User.where(id: l.user_id).blank? %>
-					<%#= render 'shared/user_modal', locals: { user: User.find(l.user_id) } %>
-					
-					<!-- TEMPORARY MODAL VIEW NEED TO FIX PARTIAL CALL -->
-
-						<% @user = User.where(id: l.user_id).first %>
-						<div class="user-modal-wrapper">
-						  <!-- Modal -->
-						  <div class="modal fade" id="userModel<%=@user.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						    <div class="modal-dialog">
-						      <div class="modal-content">
-						        <div class="modal-header">
-						          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						            <h2 class="modal-title header-image" id="myModalLabel"><%= image_tag @user.avatar %></h2>
-						            <h2 class="modal-title header-name" id="myModalLabel"><%= @user.username %></h2>
-						        </div>
-						        <div class="modal-body">
-						          <p>Member since: <strong><%= @user.created_at.strftime("%A, #{@user.created_at.day.ordinalize} %B") %></strong></p>
-						          <p>Links Submitted: <strong><%= @user.helpful_links.count %></strong></p>
-						        </div>
-						        <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-						</div>
-
-				<% end %>
-
-			<% end %>
+			
+				<%= render partial: 'helpful_links/latest_resources'%>
 		</div>
 	</section>
 

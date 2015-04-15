@@ -35,38 +35,38 @@
 								<%#= render 'shared/event_modal', locals: { event: Event.find(e.id) } %>
 							<%# end %>
 
-							<!-- Modal -->
+							<!-- Event Modal -->
 							<div class="event-modal-wrapper">
-				              <div class="modal fade" id="eventModal<%=e.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				                <div class="modal-dialog">
-				                  <div class="modal-content">
-				                    <div class="modal-header">
-				                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				                      <div class="row">
-				                      <div class="col-md-3">
-            						  	<h4 class="modal-title header-image" id="myModalLabel"><%= image_tag e.image %></h4>
-            						  </div>
-				                      <div class="col-md-9">
-				                      	<h4 class="modal-title" id="myModalLabel"><strong><%=e.name%></strong></h4>
-				                      	<span id="date"><h5><em><%= e.date.strftime("%A, #{e.date.day.ordinalize} %B") %> <%= e.time_start.strftime("%H:%M") %> - <%= e.time_end.strftime("%H:%M") %></em></h5></span>
-				                      </div>
-				                      </div>
-				                    </div>
-				                    <div class="modal-body">
-				                    	<div class="row">
-				                      	<div class="col-md-12">
-				                    		<%= e.description.html_safe %>
-				                    	</div>
-				                    	</div>
-				                    </div>
-				                    <div class="modal-footer">
-				                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				                      <%= link_to "Get Tickets", e.ticket_link, class: "btn btn-success" %>
-				                    </div>
-				                  </div>
-				                </div>
-				              </div>
-				             </div>
+				              	<div class="modal fade" id="eventModal<%=e.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				                	<div class="modal-dialog">
+				                  		<div class="modal-content">
+				                    		<div class="modal-header">
+				                      			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				                      			<div class="row">
+				                      				<div class="col-md-3">
+            						  					<h4 class="modal-title header-image" id="myModalLabel"><%= image_tag e.image %></h4>
+            						  				</div>
+				                      				<div class="col-md-9">
+				                      					<h4 class="modal-title" id="myModalLabel"><strong><%=e.name%></strong></h4>
+				                      					<span id="date"><h5><em><%= e.date.strftime("%A, #{e.date.day.ordinalize} %B") %> <%= e.time_start.strftime("%H:%M") %> - <%= e.time_end.strftime("%H:%M") %></em></h5></span>
+				                      				</div>
+				                      			</div>
+				                    		</div>
+			                    			<div class="modal-body">
+				                    			<div class="row">
+				                      				<div class="col-md-12">
+				                    					<%= e.description.html_safe %>
+				                    				</div>
+				                    			</div>
+				                    		</div>
+				                    		<div class="modal-footer">
+				                      			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				                      			<%= link_to "Get Tickets", e.ticket_link, class: "btn btn-success" %>
+				                    		</div>
+				                  		</div>
+				                	</div>
+				              	</div>
+				            </div>
 
 
 						<% end %>

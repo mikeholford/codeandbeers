@@ -29,4 +29,16 @@
 			color: rgb(18, 112, 174);
 		}
 	}
+	.favourite-link-form {
+		.favourite {
+				background-color: #fafaf9;
+				border-style: none;
+		}
+		.favourite:hover {
+			color: #fbcb3a;
+		}
+		.favourited {
+			color: #fbcb3a;
+		}
+	}
 }

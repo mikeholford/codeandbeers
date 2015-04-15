@@ -21,6 +21,18 @@ class HelpfulLinksController < ApplicationController
 		end
 	end
 
+	def update
+		@link = HelpfulLink.find(params[:id]) 
+		@user = User.find(params[:user_id]) 
+		if @link.update_attributes(link_params)
+			flash[:notice] = "Link Updated. Thank you #{current_user.username}!"
+			redirect_to root_url
+		else
+			flash[:alert] = "Could not update..."
+			redirect_to root_url
+		end
+	end
+
 	def destroy
 		@link.destroy
 		respond_to do |format|
@@ -33,7 +45,7 @@ class HelpfulLinksController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def link_params
-		params.require(:helpful_link).permit(:name, :description, :link, :user_id)
+		params.require(:helpful_link).permit(:name, :description, :link, :user_id, :paid)
 	end
 
 

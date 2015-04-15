@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   private
 
   def set_globals 
-  	@link = HelpfulLink.new
-	@links = HelpfulLink.all
-	@user = current_user unless current_user.blank?
+    @link = HelpfulLink.new
+  	@links = HelpfulLink.all
+  	@user = current_user unless current_user.blank?
   end
 
 end

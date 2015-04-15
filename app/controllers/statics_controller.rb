@@ -4,6 +4,7 @@ class StaticsController < ApplicationController
 	def home 
 		@resource ||= User.new
 		@link = HelpfulLink.new
+		@fav = Favourite.new
 		@links = HelpfulLink.all
 		@events = Event.all
 		@user = current_user unless current_user.blank?

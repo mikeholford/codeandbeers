@@ -1,0 +1,121 @@
+
+<% @fav.order('created_at DESC').each do |f| %>
+	
+
+	<div class="well">
+		<div class="row">
+			<div class="col-md-10">
+				<h4><%= link_to l.name, l.link %> <%= link_to "", "", :data => {toggle: "modal", target: "#editlinkModal#{l.id}"}, class: "fa fa-edit" unless l.user_id != current_user.id %></h4>
+			</div>
+			<div class="col-md-2">
+				<div class="favourite-link-form">
+					<% if Favourite.where(helpful_link_id: l.id).first.blank? %>
+						<%= form_for [@user, @fav] do |f| %>
+							<%= f.hidden_field :user_id, value: current_user.id %>
+							<%= f.hidden_field :helpful_link_id, value: l.id %>
+							<button type='submit' class="favourite">
+								<i class="fa fa-star"></i>
+							</button>
+						<% end %>
+					<% else %>
+						<i class="fa fa-star favourited"></i>
+					<% end %>
+				</div>
+				<hr>
+				<% if l.paid == true %>
+					<div class="label label-warning">
+						<i class="fa fa-gbp"> Paid Resource</i>
+					</div>
+				<% else %>
+					<div class="label label-success">
+						<i class="fa fa-gbp"> Free Resource</i>
+					</div>
+				<% end %>
+			</div>
+			<div class="col-md-12">
+				<p><%= l.description %></p>
+				<p id="submitted">Submitted <% if User.where(id: l.user_id).first %>by<%end%> <em><%= link_to User.where(id: l.user_id).first.username, "", :data => {toggle: "modal", target: "#userModel#{l.user_id}"}, id: "username" unless User.where(id: l.user_id).first.blank? %></em> <%= time_ago_in_words(l.created_at) %> ago.</p>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Render 2 models one for creating and another for editing links -->
+
+	<% unless User.where(id: l.user_id).blank? %>
+		<%#= render 'shared/user_modal', locals: { user: User.find(l.user_id) } %>
+		
+		<!-- TEMPORARY MODAL VIEW NEED TO FIX PARTIAL CALL -->
+
+		<% @user = User.where(id: l.user_id).first %>
+		<div class="user-modal-wrapper">
+		  	<!-- User Show Modal -->
+	  		<div class="modal fade" id="userModel<%=@user.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    	<div class="modal-dialog">
+		      		<div class="modal-content">
+		        		<div class="modal-header">
+		          			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		            		<h2 class="modal-title header-image" id="myModalLabel"><%= image_tag @user.avatar %></h2>
+		            		<h2 class="modal-title header-name" id="myModalLabel"><%= @user.username %></h2>
+		        		</div>
+		        		<div class="modal-body">
+		          			<p>Member since: <strong><%= @user.created_at.strftime("#{@user.created_at.day.ordinalize} %B %Y") %></strong></p>
+		          			<p>Links Submitted: <strong><%= @user.helpful_links.count %></strong></p>
+		        		</div>
+		        		<div class="modal-footer">
+		          			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        		</div>	
+		      		</div>
+		    	</div>
+		  	</div>
+		</div>
+
+		<!-- Testing edit links with dropdown -->
+
+		<!-- Modal -->
+		<div class="modal fade" id="editlinkModal<%=l.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        		<h3 class="modal-title" id="myModalLabel">Edit Resource</h3>
+		        		<p class="muted"><em>Thanks for keeping the community up to date with any changes! Don't forget to share once you have made changes.</em></p>
+		      		</div>
+		      		<div class="modal-body">
+				    	<%#= render "helpful_links/edit_form" %>
+				    	<% @editlink = l %>
+				    	<div class="helpful-links-form">
+							<%= form_for [@user, @editlink] do |f| %>
+								<div class="field">
+									<%= f.label :name %><br>
+									<%= f.text_field :name, placeholder: "Name" %>
+								</div>
+								<div class="field">
+									<%= f.label :description %><br>
+									<%= f.text_field :description, placeholder: "Short Description" %>
+								</div>
+								<div class="field">
+									<%= f.label :link %><br>
+									<%= f.text_field :link, placeholder: "Link URL" %>
+								</div>
+								<div class="field">
+									<%= f.label :paid, "Tick if you need to pay for this service" %>
+									<%= f.check_box :paid %>
+								</div>
+								<div id="link_submit">
+									<%= f.submit 'Update Resource', class: 'btn btn-CB' %>
+								</div>
+							<% end %>
+						</div>
+		      		</div>
+		      		<div class="modal-footer">
+		        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      		</div>
+		    	</div>
+		  	</div>
+		</div>
+	<% end %>
+
+<% end %>

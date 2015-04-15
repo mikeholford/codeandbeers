@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
      :omniauthable, :omniauth_providers => [:twitter]
 
     has_many :helpful_links
+    has_many :favourites
     after_create :send_notification
 
     validates_presence_of :username
