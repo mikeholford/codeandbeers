@@ -3,35 +3,32 @@
 	<div class="well">
 		<div class="row">
 			<div class="col-md-10">
-				<h4><%= link_to l.name, l.link %> <%= link_to "", edit_user_helpful_link_path(l.user_id, l.id), class: "fa fa-edit" unless l.user_id != current_user.id %></h4>
+				<h4><%= link_to l.name, l.link %> 
+				<% if l.paid == true %>
+					<div class="paid-resource-wrapper" data-toggle="tooltip" data-placement="top" title="Paid Resource">
+						<i class="fa fa-gbp paid-resource"></i>
+                	</div>
+				<% end %>
+				<%= link_to "", edit_user_helpful_link_path(l.user_id, l.id), class: "fa fa-edit" unless l.user_id != current_user.id %></h4>
 			</div>
 			<div class="col-md-2">
 				<div class="favourite-link-form">
-					<% if Favourite.where(helpful_link_id: l.id).first.blank? %>
-						<%= form_for [@user, @fav], remote: true do |f| %>
-							<%= f.hidden_field :user_id, value: current_user.id %>
-							<%= f.hidden_field :helpful_link_id, value: l.id %>
-							<button type='submit' class="favourite">
+					<%# if Favourite.where(helpful_link_id: l.id).first.blank? %>
+						<%#= form_for [@user, @fav], remote: true do |f| %>
+							<%#= f.hidden_field :user_id, value: current_user.id %>
+							<%#= f.hidden_field :helpful_link_id, value: l.id %>
+							<!-- <button type='submit' class="favourite">
 								<i class="fa fa-star favourite"></i>
-							</button>
-						<% end %>
-					<% else %>
-						<i class="fa fa-star favourited"></i>
-					<% end %>
+							</button> -->
+						<%# end %>
+					<%# else %>
+						<!-- <i class="fa fa-star favourited"></i> -->
+					<%# end %>
 				</div>
 			</div>
 			<div class="col-md-12">
 				<p><%= l.description %></p>
 				<p id="submitted">Submitted <% if User.where(id: l.user_id).first %>by<%end%> <em><%= link_to User.where(id: l.user_id).first.username, "", :data => {toggle: "modal", target: "#userModel#{l.user_id}"}, id: "username" unless User.where(id: l.user_id).first.blank? %></em> <%= time_ago_in_words(l.created_at) %> ago.</p>
-				<% if l.paid == true %>
-					<div class="label label-warning">
-						<i class="fa fa-gbp"> Paid Resource</i>
-					</div>
-				<% else %>
-					<div class="label label-success">
-						<i class="fa fa-gbp"> Free Resource</i>
-					</div>
-				<% end %>
 			</div>
 		</div>
 	</div>

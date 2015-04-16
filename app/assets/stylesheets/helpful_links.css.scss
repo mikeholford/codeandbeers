@@ -22,6 +22,12 @@
 		color: #448FC2;
 	}
 	.well {
+		.paid-resource-wrapper {
+			display: inline;
+			.paid-resource {
+				color: gray;
+			}
+		}
 		#submitted {
 			font-size: 12px;
 			display: inline;

@@ -6,7 +6,7 @@
 		<%#= image_tag current_user.avatar %>
 		<h1>Hey <%= current_user.username %></h1>
 		<% if current_user.favourites.count > 0 %>
-			<i class="fa fa-star"></i> <%= link_to "#{current_user.favourites.count} Favourites", user_favourites_path(current_user) %>
+			<!-- <i class="fa fa-star"></i> <%#= link_to "#{current_user.favourites.count} Favourites", user_favourites_path(current_user) %> -->
 		<% end %>
 		<hr class="white">
 	</section>
