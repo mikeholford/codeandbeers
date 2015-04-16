@@ -1,4 +1,5 @@
 class UsersController < Devise::RegistrationsController
+  before_action :set_globals
 
   def new
     super
@@ -24,6 +25,12 @@ class UsersController < Devise::RegistrationsController
 
   def account_update_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password, :avatar)
+  end
+
+  def set_globals 
+    @link = HelpfulLink.new
+    @links = HelpfulLink.all
+    @user = current_user unless current_user.blank?
   end
 
 end 
