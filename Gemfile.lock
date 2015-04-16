@@ -19,6 +19,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    abracadabra (1.2.0)
+      rails (>= 3.2.11)
     actionmailer (4.2.1)
       actionpack (= 4.2.1)
       actionview (= 4.2.1)
@@ -247,6 +249,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  abracadabra
   active_admin_editor
   active_skin
   activeadmin!
