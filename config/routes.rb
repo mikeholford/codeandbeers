@@ -17,6 +17,8 @@ Codeandbeers::Application.routes.draw do
   
   resources :statics
   resources :events
+  resources :collections
+  resources :collection_links
 
 
   #Match Routes

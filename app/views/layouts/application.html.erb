@@ -43,17 +43,18 @@
 				<%= render 'layouts/footer' %>
 			</div>
 		</div>
-		<% if signed_in? %>
-			<%= render 'shared/link_modal' %>
-		<% end %>
 	</body>
 
-	<!-- Menu Toggle Script -->
     <script>
+    	// Menu Toggle
 	    $("#menu-toggle").click(function(e) {
 	        e.preventDefault();
 	        $("#wrapper").toggleClass("toggled");
 	    });
+	    // Toggle Tooltip
+	    $(function () {
+		  $('[data-toggle="tooltip"]').tooltip()
+		})
     </script>
 
 </html>

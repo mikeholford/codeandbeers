@@ -11,13 +11,23 @@
 		<hr class="white">
 	</section>
 	<section>
-		<div class="link-wrapper">	
-			<h3><i class="fa fa-external-link"></i> Latest Resources <%= link_to "+ New", "", class: "new_resource", :data => {toggle: "modal", target: "#linkModal"} %></h3>
-			
+		<div class="">
+			<h3><i class="fa fa-th"></i> Top Collections <%= link_to "View all", collections_path, class: "new_link" %></h3>
+			<div class="collection-wrapper">
+				<%= render 'collections/collection_list' %>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="link-wrapper">
+			<h3><i class="fa fa-list"></i> Latest Resources <%= link_to "+ New", "", class: "new_link", :data => {toggle: "modal", target: "#linkModal"} %></h3>
 				<%= render partial: 'helpful_links/latest_resources'%>
 		</div>
 	</section>
 
 </div>
-
-
+ 
+<!-- Link Modal -->
+<% if signed_in? %>
+	<%= render 'shared/helpful_link_modal' %>
+<% end %>

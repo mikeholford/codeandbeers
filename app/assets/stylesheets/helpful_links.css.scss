@@ -14,34 +14,46 @@
 }
 
 .link-wrapper {
+
 	a {
 		color: #36454f;
-	}
-	a:hover {
-		text-decoration: none;
-		color: #448FC2;
+		&:hover {
+			text-decoration: none;
+			color: #448FC2;
+		}
 	}
 	.well {
-		.paid-resource-wrapper {
-			display: inline;
-			.paid-resource {
-				color: gray;
+		.header {
+			.paid-resource-wrapper {
+				display: inline;
+				.paid-resource {
+					color: gray;
+				}
+			}
+		}
+		.actions {
+			.collection-wrapper {
+				float: right;
 			}
 		}
 		#submitted {
 			font-size: 12px;
 			display: inline;
+			img {
+				width: 25px;
+				height: 25px;
+				border-radius: 50%;
+			}
 		}
 		#username {
 			color: rgb(18, 112, 174);
 		}
 	}
+
 	.favourite-link-form {
-
-			i {
-				float: right;
-			}
-
+		i {
+			float: right;
+		}
 		.favourite {
 				background-color: #fafaf9;
 				border-style: none;

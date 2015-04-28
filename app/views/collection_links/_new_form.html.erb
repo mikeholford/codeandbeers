@@ -1,0 +1,18 @@
+<% @current_link = locals[:current_link] %>
+
+<div class="collection-links-form">
+	<%= form_for @clink do |f| %>
+
+		<div class="field">
+			<%= f.hidden_field :helpful_link_id, value: "#{@current_link.id}" %>
+		</div>
+		<div class="field">
+			<%= f.label :collection_id, "Which collection would you like to add this link to?" %><br>
+			<%= f.collection_select :collection_id, Collection.all, :id, :name %>
+		</div>
+		<div id="link_submit">
+			<%= f.submit 'Add to collection', class: 'btn btn-CB' %>
+		</div>
+
+	<% end %>
+</div>

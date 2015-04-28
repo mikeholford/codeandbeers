@@ -1,0 +1,21 @@
+<% @current_link = locals[:clink] %>
+<!-- Modal -->
+<div class="collection-link-modal-wrapper">
+  <div class="modal fade" id="collectionModel<%= @current_link.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel">Add <%= @current_link.name %> to:</h3>
+          <p class="muted"><em>Help the community and add this resource to a collection.</em></p>
+        </div>
+        <div class="modal-body">
+  		    <%= render 'collection_links/new_form', locals: { current_link: @current_link } %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

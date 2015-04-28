@@ -1,0 +1,61 @@
+<% @l = locals[:collection_link] %>
+
+<div class="well">
+	<div class="row">
+		<div class="col-md-10">
+			<div class="header">
+				<h4><%= link_to @l.name, @l.link %> 
+				<% if @l.paid == true %>
+					<div class="paid-resource-wrapper" data-toggle="tooltip" data-placement="top" title="Paid Resource">
+						<i class="fa fa-gbp paid-resource"></i>
+                	</div>
+				<% end %>
+				<%= link_to "", edit_user_helpful_link_path(@l.user_id, @l.id), class: "fa fa-edit" unless @l.user_id != current_user.id %>
+				</h4>
+            </div>
+		</div>
+		<div class="col-md-2">
+			<div class="actions">
+				<div class="collection-wrapper" data-toggle="tooltip" data-placement="left" title="Add to collection">
+                    <!-- ADD TO COLLECTION NOT YET FINISHED. NEED TO DISALLOW DUPLICATE ADDING -->
+                    <%#= link_to "", "", :data => {toggle: "modal", target: "#collectionModel#{@l.id}"}, class: "fa fa-plus" %>
+                </div>
+				<div class="favourite-link-form">
+					<!-- NEED TO ADD AJAX TO FAVOURITING -->
+					<%# if Favourite.where(helpful_link_id: l.id).first.blank? %>
+						<%#= form_for [@user, @fav], remote: true do |f| %>
+							<%#= f.hidden_field :user_id, value: current_user.id %>
+							<%#= f.hidden_field :helpful_link_id, value: l.id %>
+							<!-- <button type='submit' class="favourite">
+								<i class="fa fa-star favourite"></i>
+							</button> -->
+						<%# end %>
+					<%# else %>
+						<!-- <i class="fa fa-star favourited"></i> -->
+					<%# end %>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<p><%= @l.description %></p>
+			<p id="submitted">
+				<% if User.where(id: @l.user_id).first %>
+					By
+				<%end%> 
+				<em>
+					<%= link_to image_tag(User.where(id: @l.user_id).first.avatar), "", :data => {toggle: "modal", target: "#userModel#{@l.user_id}"}, id: "username" unless User.where(id: @l.user_id).first.blank? %>
+					<%= link_to User.where(id: @l.user_id).first.username, "", :data => {toggle: "modal", target: "#userModel#{@l.user_id}"}, id: "username" unless User.where(id: @l.user_id).first.blank? %>
+				</em> 
+				<%= time_ago_in_words(@l.created_at) %> ago
+			</p>
+		</div>
+	</div>
+</div>
+
+
+<% unless User.where(id: @l.user_id).blank? %>
+	<!-- Show User -->
+	<%= render 'shared/user_modal', locals: { user: User.find(@l.user_id) } %>
+<% end %>
+<!-- Collection Modal -->
+<%= render 'collection_links/modal', locals: { clink: @l} %>

@@ -17,6 +17,3 @@
 //= require_tree .
 
 // JS for tooltip
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
