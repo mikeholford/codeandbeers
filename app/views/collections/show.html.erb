@@ -4,6 +4,7 @@
 	<section>
 		<%#= image_tag current_user.avatar %>
 		<h1><i class="fa fa-th-large"></i> <%= @collection.name %></h1>
+		<p class="small"><em><%= @collection.description %></em></p>
 		<p><em><i class="fa fa-arrow-left"></i><%= link_to " View all", collections_path %></em></p>
 	</section>
 	<section>
