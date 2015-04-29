@@ -9,8 +9,7 @@ class StaticsController < ApplicationController
 		@links = HelpfulLink.all
 		@link = HelpfulLink.new
 	  	@user = current_user unless current_user.blank?
-	  	@collections = Collection.all
-
+	  	@collections = Collection.all.limit(4)
 		if signed_in?
 			render :dashboard
 		end
